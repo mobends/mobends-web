@@ -1,0 +1,28 @@
+.Header {
+    flex: 0 0 auto;
+
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10vw;
+    background-color: #286682;
+    color: #ffdd55;
+    width: 100%;
+
+    h1 {
+        margin: 0.4em 0.8em;
+        font-size: 1em;
+        text-align: left;
+    }
+
+    .Header_logo {
+        margin: 0.3em 0.1em;
+        width: 2em;
+    }
+
+    .Header_title {
+        margin-left: 0.8em;
+        height: 1.3em;
+    }
+}
