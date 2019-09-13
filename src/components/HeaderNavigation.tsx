@@ -1,11 +1,12 @@
 import React from 'react';
 import './HeaderNavigation.scss';
+import { Link } from './router/Link';
 
 export function HeaderNavigation() {
     return (
-        <nav className="HeaderNavigation">
-            <button>Packs</button>
-            <button>Log in</button>
+        <nav className='HeaderNavigation'>
+            <Link to={null}>Home</Link>
+            <Link to='packs'>Packs</Link>
         </nav>
     );
 }

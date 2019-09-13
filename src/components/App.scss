@@ -1,13 +1,18 @@
 .App {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
 
-    min-height: 100vh;
-    font-size: calc(10px + 2vmin);
+    height: 100vh;
     color: white;
 
     text-align: center;
-    background-color: #103f55;
+    background-color: #bbbbbb;
+
+    .App_content {
+        flex: 1 1;
+
+        overflow-y: auto;
+    }
 }
