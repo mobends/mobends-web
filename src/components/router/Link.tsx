@@ -1,14 +1,16 @@
 import React, { ReactNode } from 'react';
-import { useRouteToPage } from './Router';
+import { useRouteToPage, constructUrlFromParams } from './Router';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/types';
+import { combineClasses } from '../../helpers/classNameHelper';
 
 export interface LinkProps {
     children?: ReactNode
+    className?: string
     to: string | null
 }
 
-export function Link({ children, to }: LinkProps) {
+export function Link({ className, children, to }: LinkProps) {
 
     const routeToPage = useRouteToPage();
     const page = useSelector((state: RootState) => state.page);
@@ -18,8 +20,12 @@ export function Link({ children, to }: LinkProps) {
         routeToPage(to);
     };
 
+    const classes = combineClasses({
+        active: page === to,
+    });
+
     return (
-        <a href='#' onClick={handleClick} className={page === to ? 'active' : ''}>
+        <a href={constructUrlFromParams({ page: to })} onClick={handleClick} className={[className, classes].join(' ')}>
             { children }
         </a>
     );

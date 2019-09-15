@@ -47,7 +47,7 @@ export function Router({ children }: RouterProps) {
     useEffect(() => {
         const { page } = extractParamsFromUrl(window.location.href);
         dispatch(changePage(page));
-    }, []);
+    }, [ dispatch ]);
 
     useEffect(() => {
         const handlePopState = (e: PopStateEvent) => {

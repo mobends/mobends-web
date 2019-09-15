@@ -1,11 +1,13 @@
 .HeaderNavigation {
+    display: block;
+    height: auto;
+
     a {
         margin-left: 0.5em;
-        padding: 0.8em 1.3em;
+        padding: 0.6em 1.3em;
         border: 0.1em solid transparent;
         background-color: transparent;
         color: white;
-        font-family: 'Lato', sans-serif;
         font-size: 1.1em;
         font-weight: normal;
         text-decoration: none;
@@ -19,7 +21,7 @@
         &.active {
             border-color: white;
             color: white;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 42, 121, 0.2);
             font-weight: bold;
         }
 

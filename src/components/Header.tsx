@@ -3,12 +3,15 @@ import './Header.scss';
 
 import { HeaderNavigation } from './HeaderNavigation';
 import logo from '../logo.svg';
-import title from '../title.svg';
+import { Link } from './router/Link';
 
 export function Header() {
     return (
         <header className="Header">
-            <img className="Header_logo" alt="Logo" src={logo}></img>
+            <Link className="Header_logo" to={null}>
+                <span style={{ backgroundImage: `url(${logo})` }}></span>
+                <img alt='Logo' src={logo}></img>
+            </Link>
             
             <HeaderNavigation />
         </header>

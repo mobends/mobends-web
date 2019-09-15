@@ -1,18 +1,23 @@
 .PackListEntry {
     display: block;
-    width: 600px;
-    height: 200px;
-    background-color: #ececec;
-    color: #333333;
+    width: 400px;
+    height: 100px;
+    padding: 10px;
+    background-color: #4e4e4e;
+    color: #cfcfcf;
+
+    box-shadow: 5px 5px 6px 0px rgba(0, 0, 0, 0.05);
 
     header {
         h1 {
-            margin: 0;
-            padding: 0.2em 1em;
-            font-size: 1.6em;
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
             text-align: left;
         }
     }
 
-
+    p {
+        text-align: left;
+        margin: 0;
+    }
 }
