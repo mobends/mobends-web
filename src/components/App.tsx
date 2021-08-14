@@ -19,7 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <div className="App_content">
+        <div className="App__content">
           <SimpleBar>
             <Route page="packs" component={<PacksPage />} />
             <Route page={null} component={<HomePage />} />

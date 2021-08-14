@@ -29,7 +29,7 @@ export function PacksPage() {
 
     return (
         <div className="PacksPage">
-            <div className="PackPage_error">{ errorMessage }</div>
+            <div className="PackPage__error">{ errorMessage }</div>
             { packsElements }
         </div>
     );

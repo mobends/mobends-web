@@ -7,7 +7,7 @@ import banner from '../banner.svg';
 export function HomePage() {
     return (
         <div className="HomePage">
-            <img className="HomePage_banner" alt="Banner" src={banner} />
+            <img className="HomePage__banner" alt="Banner" src={banner} />
             <PlayerCounter />
         </div>
     );

@@ -1,5 +1,5 @@
-Button {
-    margin-left: 0.5em;
+.Button {
+    display: inline-block;
     padding: 0.6em 1.3em;
     background-color: transparent;
     color: currentColor;
@@ -11,13 +11,13 @@ Button {
     transition: background-color 0.1s ease-out;
 
     &:hover {
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: #ffffff0d;
     }
 
     &.active {
         border-color: white;
         color: white;
-        background-color: rgba(0, 42, 121, 0.2);
+        background-color: #002a7933;
         font-weight: bold;
     }
 

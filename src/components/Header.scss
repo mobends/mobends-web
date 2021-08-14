@@ -18,7 +18,7 @@
         text-align: left;
     }
 
-    .Header_logo {
+    .Header__logo {
         position: relative;
         display: flex;
         justify-content: center;
@@ -58,10 +58,5 @@
                 filter: brightness(1.2);
             }
         }
-    }
-
-    .Header_title {
-        margin-left: 0.8em;
-        height: 1.3em;
     }
 }

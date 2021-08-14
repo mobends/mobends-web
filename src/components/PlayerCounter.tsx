@@ -8,7 +8,7 @@ export function PlayerCounter() {
         <div className="PlayerCounter">
             <p>Online users of Mo' Bends:</p>
             <p className="count">15</p>
-            <Button>Download Mo' Bends</Button>
+            <Button link="https://www.curseforge.com/minecraft/mc-mods/mo-bends">Download Mo' Bends</Button>
         </div>
     );
 }

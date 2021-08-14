@@ -4,16 +4,17 @@
   "private": true,
   "homepage": "https://mobends.github.io",
   "dependencies": {
+    "classnames": "^2.3.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^4.0.3",
     "redux": "^4.0.4",
     "simplebar-react": "^1.3.0-alpha.0"
   },
   "scripts": {
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -b master -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build -r https://github.com/mobends/mobends.github.io.git",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,7 +39,7 @@
     "@types/react": "^16.9.2",
     "@types/react-redux": "^7.1.2",
     "gh-pages": "^2.1.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^6.0.1",
     "typescript": "^3.6.2"
   }
 }
