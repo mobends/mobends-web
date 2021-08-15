@@ -6,7 +6,7 @@ export function HeaderNavigation() {
     return (
         <nav className='HeaderNavigation'>
             <Link to={null}>Home</Link>
-            <Link to='packs'>Get Packs</Link>
+            <Link to='editor'>Animation Editor</Link>
         </nav>
     );
 }
