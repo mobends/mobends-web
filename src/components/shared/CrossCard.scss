@@ -1,0 +1,68 @@
+.CrossCard {
+    --CrossCard-color: #9a1616;
+    --CrossCard-shadow: #eb5626;
+    --CrossCard-bg: #ffdd55;
+
+    margin: 20px;
+    position: relative;
+    width: 20rem;
+    padding: 2em;
+    color: var(--CrossCard-color, magenta);
+    z-index: 0;
+    
+    $border: 4px;
+    $angle: 2deg;
+
+    h1 {
+        margin-top: 0;
+    }
+
+    ul {
+        text-align: left;
+        margin-bottom: 2rem;
+    }
+
+    // Drop shadow?
+    &::before {
+        content: "";
+        position: absolute;
+        top: -$border;
+        right: -$border;
+        bottom: -$border;
+        left: -$border;
+
+        display: block;
+        background-color: var(--CrossCard-shadow, magenta);
+        transform: rotate($angle);
+        z-index: -1;
+
+        transition: 0.1s ease-out transform;
+    }
+
+    // Drop shadow?
+    &::after {
+        content: "";
+        position: absolute;
+        top: -$border;
+        right: -$border;
+        bottom: -$border;
+        left: -$border;
+
+        display: block;
+        background-color: var(--CrossCard-bg, magenta);
+        transform: rotate(-$angle);
+        z-index: -1;
+
+        transition: 0.1s ease-out transform;
+    }
+
+    &:hover {
+        &::before {
+            transform: rotate($angle * 0.5);
+        }
+
+        &::after {
+            transform: rotate(-$angle * 0.5);
+        }
+    }
+}

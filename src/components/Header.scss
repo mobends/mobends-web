@@ -1,3 +1,5 @@
+@import "../styles/partials/variables";
+
 .Header {
     flex: 0 0 auto;
 
@@ -5,17 +7,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.2em 10vw;
+    padding: 0.2rem 10vw;
     background-color: #169cb4;
     color: #ffdd55;
     width: 100%;
 
     box-shadow: 0px -20px 16px 20px rgba(0, 0, 0, 0.25);
 
-    h1 {
-        margin: 0.4em 0.8em;
-        font-size: 1em;
-        text-align: left;
+    .Header__left {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .Header__right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
     }
 
     .Header__logo {
@@ -23,9 +31,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0.3em 0.1em;
-        width: 2.7em;
-        height: 2.7em;
+        margin: 0.3rem 0.1rem;
+        width: 2.7rem;
+        height: 2.7rem;
 
         span {
             position: absolute;
@@ -51,12 +59,40 @@
 
         &:hover {
             span {
-                transform: scale(1.2) translate(-0.06em, -0.02em);
+                transform: scale(1.2) translate(-0.06rem, -0.02rem);
             }
 
             img {
                 filter: brightness(1.2);
             }
+        }
+    }
+
+    .Header__logo-title {
+        height: 1.6rem;
+        margin-left: 1rem;
+
+        img {
+            height: 100%;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-sm) {
+    .Header {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 0;
+
+        .Header__left {
+            display: flex;
+            justify-content: center;
+        }
+    
+        .Header__right {
+            display: flex;
+            justify-content: center;
         }
     }
 }

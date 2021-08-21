@@ -1,0 +1,34 @@
+@import "../../styles/partials/_variables";
+
+.HomePage {
+    .HomePage__banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40vh;
+
+        background-color: #484848;
+        background-size: cover;
+        background-position: center;
+
+        // filter: hue-rotate(-170deg) brightness(0.6) contrast(3.5) brightness(1.7) saturate(0);
+    }
+
+    .HomePage__cards {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+
+        padding-top: 5em;
+    }
+}
+
+@media (max-width: $breakpoint-sm) {
+    .HomePage {
+        .HomePage__cards {
+            flex-direction: column;
+        }
+    }
+}

@@ -4,8 +4,8 @@ import './App.scss';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import { Header } from './Header';
-import { EditorPage } from './EditorPage';
-import { HomePage } from './HomePage';
+import { RoadMapPage } from './pages/RoadMapPage';
+import { HomePage } from './pages/HomePage';
 import { Route } from './router/Route';
 import { Router } from './router/Router';
 
@@ -16,7 +16,7 @@ function App() {
                 <Header />
                 <div className="App__content">
                     <SimpleBar>
-                        <Route page="editor" component={<EditorPage />} />
+                        <Route page="roadmap" component={<RoadMapPage />} />
                         <Route page={null} component={<HomePage />} />
                     </SimpleBar>
                 </div>

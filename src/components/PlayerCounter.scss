@@ -1,43 +1,4 @@
 .PlayerCounter {
-    margin: 100px auto;
-    position: relative;
-    width: 300px;
-    padding: 2em;
-    color: #9a1616;
-    
-    $border: 4px;
-    $angle: 2deg;
-
-    // Drop shadow?
-    &::before {
-        content: "";
-        position: absolute;
-        top: -$border;
-        right: -$border;
-        bottom: -$border;
-        left: -$border;
-
-        display: block;
-        background-color: #eb5626;
-        transform: rotate($angle);
-        z-index: -1;
-    }
-
-    // Drop shadow?
-    &::after {
-        content: "";
-        position: absolute;
-        top: -$border;
-        right: -$border;
-        bottom: -$border;
-        left: -$border;
-
-        display: block;
-        background-color: #ffdd55;
-        transform: rotate(-$angle);
-        z-index: -1;
-    }
-
     p {
         margin: 0;
         font-size: 1.2em;
