@@ -17,6 +17,7 @@
     "deploy": "gh-pages -b master -d build -r https://github.com/mobends/mobends.github.io.git",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:dev": "dotenv -c development react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@types/react": "^16.9.2",
     "@types/react-redux": "^7.1.2",
+    "dotenv-cli": "^4.0.0",
     "gh-pages": "^2.1.1",
     "node-sass": "^6.0.1",
     "typescript": "^3.6.2"

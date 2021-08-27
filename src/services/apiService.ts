@@ -1,7 +1,7 @@
 import { IntervalResource } from './intervalResource';
 
 const API_ENDPOINT = process.env.REACT_APP_MOBENDS_API_URL || 'localhost:5000';
-const ACTIVITY_ENDPOINT = `${API_ENDPOINT}/activity`;
+const ACTIVITY_ENDPOINT = `${API_ENDPOINT}/api/activity`;
 
 export class ApiService {
     public static readonly instance = new ApiService();
