@@ -9,6 +9,7 @@ export function HeaderNavigation() {
         <nav className='HeaderNavigation'>
             <Link to={null}>Home</Link>
             <Link to='roadmap'>What's to come?</Link>
+            <Link to='dashboard'>Dashboard</Link>
         </nav>
     );
 }

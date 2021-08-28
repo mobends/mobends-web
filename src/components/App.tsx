@@ -8,6 +8,7 @@ import { RoadMapPage } from './pages/RoadMapPage';
 import { HomePage } from './pages/HomePage';
 import { Route } from './router/Route';
 import { Router } from './router/Router';
+import { UserDashboardPage } from './pages/UserDashboardPage';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                 <Header />
                 <div className="App__content">
                     <SimpleBar>
+                        <Route page="dashboard" component={<UserDashboardPage />} />
                         <Route page="roadmap" component={<RoadMapPage />} />
                         <Route page={null} component={<HomePage />} />
                     </SimpleBar>

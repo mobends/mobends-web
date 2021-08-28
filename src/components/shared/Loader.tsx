@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { StylableProps } from '../commons';
 import './Loader.scss';
+import { StylableProps } from './commonProps';
 
 
 export interface LoaderProps extends StylableProps {}

@@ -1,7 +1,8 @@
 import React from 'react';
-import { StylableProps } from './commons';
 import './PackListEntry.scss';
+
 import classNames from 'classnames';
+import { StylableProps } from './shared/commonProps';
 
 export interface PackListEntryProps extends StylableProps {
     name: string;
