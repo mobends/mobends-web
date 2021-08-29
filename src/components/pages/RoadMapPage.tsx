@@ -1,5 +1,4 @@
 import React from 'react';
-import { DiscordCard } from '../DiscordCard';
 import { Button } from '../shared/Button';
 import { CrossCard } from '../shared/CrossCard';
 

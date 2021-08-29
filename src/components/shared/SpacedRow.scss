@@ -1,0 +1,8 @@
+.SpacedRow {
+    display: flex;
+    justify-content: start;
+
+    & > * {
+        margin-right: var(--SpacedRow-spacing, 1rem);
+    }
+}

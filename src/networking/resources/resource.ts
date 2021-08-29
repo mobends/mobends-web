@@ -8,8 +8,8 @@ export interface IResource<T> {
     unsubscribe(callback: IResourceChangeListener<T>): void;
 }
 
-export function useResource<T>(resource: IResource<T>): T|null {
-    const [value, setValue] = useState<T|null>(null);
+export function useResource<T>(resource: IResource<T>): T|undefined {
+    const [value, setValue] = useState<T|undefined>(undefined);
 
     useEffect(() => {
         let cancelled = false;

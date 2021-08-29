@@ -11,7 +11,6 @@ export interface LinkProps {
 }
 
 export function Link({ className, children, to }: LinkProps) {
-
     const routeToPage = useRouteToPage();
     const page = useSelector((state: RootState) => state.page);
 

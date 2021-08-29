@@ -1,37 +1,35 @@
-import { MutableRefObject, useCallback, useState } from 'react';
-import { useValueRef } from '../hooks/valueRef';
+import { useCallback, useMemo, useState } from 'react';
 
 export interface LoadingState {
-    loading: MutableRefObject<boolean>;
+    loading: boolean;
     setLoading: (value: boolean) => void;
 }
 
 export function useLoadingState(): LoadingState {
     const [loading, setLoading] = useState(false);
-    const loadingRef = useValueRef(loading);
-
-    return {
-        loading: loadingRef,
+    
+    return useMemo(() => ({
+        loading,
         setLoading
-    };
+    }), [loading, setLoading]);
 }
 
-export interface Task<Params, T> {
+export interface ITask<Params, T> {
     action: (params: Params) => Promise<T>;
 }
 
-export function createTask<Params, T>(action: (params: Params) => Promise<T>): Task<Params, T> {
+export function createTask<Params, T>(action: (params: Params) => Promise<T>): ITask<Params, T> {
     return {
         action,
     };
 }
 
-export function useTask<Params, T>(loadingState: LoadingState, task: Task<Params, T>) {
+export function useTask<Params, T>(loadingState: LoadingState, task: ITask<Params, T>) {
     const { loading, setLoading } = loadingState;
     const { action } = task;
 
     return useCallback(async (params: Params) => {
-        if (loading.current) {
+        if (loading) {
             // Another task is being performed.
             throw new Error('Another task is being currently performed');
         }

@@ -1,14 +1,14 @@
 import React from 'react';
-import { ActiveUserCount } from '../services/apiService';
-import { useResource } from '../services/resource';
+import { ACTIVE_USER_COUNT } from '../services/apiService';
 import { Button } from './shared/Button';
 import { CrossCard } from './shared/CrossCard';
 
 /* Styles */
 import './PlayerCounter.scss';
+import { useResource } from '../networking/resources/resource';
 
 export function PlayerCounter() {
-    const activeUserCount = useResource(ActiveUserCount);
+    const activeUserCount = useResource(ACTIVE_USER_COUNT);
 
     return (
         <CrossCard className="PlayerCounter">
