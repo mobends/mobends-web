@@ -21,7 +21,7 @@ export const MINECRAFT_USERNAME = new StaticResource(async () => {
 
 export const SET_MC_USERNAME_TASK = createTask(async (username: string) => {
     if (username.length === 0) {
-        return;
+        return { authenticated: true as const, username, };
     }
 
     let response;
@@ -31,13 +31,15 @@ export const SET_MC_USERNAME_TASK = createTask(async (username: string) => {
     }
     catch (e) {
         console.error(`Unexpected error:`, e);
-        return;
+        return { authenticated: false as const };
     }
 
     if (response.error !== undefined) {
         alert(`Failed to set username.`);
-        return;
+        return { authenticated: false as const };
     }
+
+    return { authenticated: true as const, username };
 });
 
 export interface AccessorySettings {
@@ -47,11 +49,13 @@ export interface AccessorySettings {
     color: number;
 }
 
+export type AccessorySettingsMap = {[key: string]: AccessorySettings};
+
 export const ACCESSORY_SETTINGS = new StaticResource(async () => {
     try {
         return await fetch(`${DASHBOARD_ENDPOINT}/accessories?`, {
             credentials: 'include',
-        }).then(r => parseAuthJSON<{settings: {[key: string]: AccessorySettings}}>(r));
+        }).then(r => parseAuthJSON<{settings: AccessorySettingsMap}>(r));
     }
     catch (e) {
         console.error(`Unexpected error:`, e);
@@ -61,6 +65,21 @@ export const ACCESSORY_SETTINGS = new StaticResource(async () => {
     }
 });
 
-export const SET_ACCESSORY_SETTINGS = createTask(async () => {
-    
+export const SET_ACCESSORY_SETTINGS = createTask(async (map: AccessorySettingsMap) => {
+    let response;
+
+    try {
+        response = await fetchPostJSON(`${DASHBOARD_ENDPOINT}/accessories`, { settings: map }, true);
+    }
+    catch (e) {
+        console.error(`Unexpected error:`, e);
+        return { authenticated: false as const };
+    }
+
+    if (response.error !== undefined) {
+        alert(`Failed to update accessory settings.`);
+        return { authenticated: false as const };
+    }
+
+    return { authenticated: true as const, settings: map };
 });

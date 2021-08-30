@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { useRouteToPage, constructUrlFromParams } from './Router';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/types';
-import { combineClasses } from '../../helpers/classNameHelper';
+import classNames from 'classnames';
 
 export interface LinkProps {
     children?: ReactNode
@@ -19,12 +19,10 @@ export function Link({ className, children, to }: LinkProps) {
         routeToPage(to);
     };
 
-    const classes = combineClasses({
-        active: page === to,
-    });
-
     return (
-        <a href={constructUrlFromParams({ page: to })} onClick={handleClick} className={[className, classes].join(' ')}>
+        <a href={constructUrlFromParams({ page: to })} onClick={handleClick} className={classNames(className, {
+            active: page === to,
+        })}>
             { children }
         </a>
     );

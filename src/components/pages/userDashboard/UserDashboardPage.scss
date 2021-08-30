@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20rem;
 
     &__loader {
         position: fixed;
@@ -13,9 +14,11 @@
         justify-content: center;
         align-items: center;
         pointer-events: none;
+        background-color: #272727a2;
+        z-index: 1;
     }
 
-    .UserDashboardPage__loginCard {
+    &__loginCard {
         margin: 0 auto;
         margin-top: 30vh;
         margin-bottom: 5rem;

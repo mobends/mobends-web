@@ -8,7 +8,7 @@ import { RoadMapPage } from './pages/RoadMapPage';
 import { HomePage } from './pages/HomePage';
 import { Route } from './router/Route';
 import { Router } from './router/Router';
-import { UserDashboardPage } from './pages/UserDashboardPage';
+import { UserDashboardPage } from './pages/userDashboard/UserDashboardPage';
 
 function App() {
     return (

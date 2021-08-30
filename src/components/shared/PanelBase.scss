@@ -1,15 +1,21 @@
 $border-color: rgba(255, 255, 255, 0.5);
 
 .PanelBase {
-    padding: 0 1rem 1rem 1rem;
+    padding: 0.7rem;
+    padding-top: 0;
     border: 1px solid $border-color;
+    background-color: black;
     text-align: left;
 
     &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 0.5rem 0;
         border-bottom: 1px solid $border-color;
 
         h1 {
+            flex: 1 1;
             margin: 0;
             font-weight: normal;
             font-size: 1.2rem;
