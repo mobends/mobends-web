@@ -1,4 +1,3 @@
-import { IResource } from './resource';
 import { StaticResource } from './staticResource';
 
 export class IntervalResource<T> extends StaticResource<T> {

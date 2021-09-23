@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { IResource, useResource } from './resources/resource';
 import { useLoadingState, useTask } from './tasks';
 import { ITask } from './tasks/hooks';
@@ -13,6 +13,10 @@ export function useUpdatableResource<T, UpdateParams>(resource: IResource<T>, up
     const loading = useMemo(() => {
         return loadingState.loading || initialValue === undefined;
     }, [loadingState.loading, initialValue]);
+
+    useEffect(() => {
+        setUpdatedValue(initialValue);
+    }, [setUpdatedValue, initialValue]);
 
     const updateValue = async (params: UpdateParams): Promise<T> => {
         const value = await updateTaskAction(params);

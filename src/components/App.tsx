@@ -1,3 +1,6 @@
+/* Styles */
+import './App.scss';
+
 import React from 'react';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
@@ -10,9 +13,7 @@ import {
     Route,
     Switch,
 } from 'react-router-dom';
-
-/* Styles */
-import './App.scss';
+import { AdminDashboardPage } from './pages/adminDashboard/AdminDashboardPage';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                 <div className="App__content">
                     <SimpleBar>
                         <Switch>
+                            <Route exact path="/admin">{() => <AdminDashboardPage />}</Route>
                             <Route exact path="/dashboard">{() => <UserDashboardPage />}</Route>
                             <Route exact path="/roadmap">{() => <RoadMapPage />}</Route>
                             <Route exact path="/">{() => <HomePage />}</Route>

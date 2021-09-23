@@ -1,0 +1,35 @@
+.AssetPanel {
+    margin-bottom: 1rem;
+
+    &--locked {
+        opacity: 0.5;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .AssetPanel__lockIcon {
+        width: 2rem;
+    }
+
+    &__colorPicker {
+        z-index: 2;
+        position: absolute;
+
+        &__cover {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    &__property {
+        display: flex;
+        padding: 0.5rem 0;
+
+        &__label {
+            min-width: 5rem;
+        }
+    }
+}
