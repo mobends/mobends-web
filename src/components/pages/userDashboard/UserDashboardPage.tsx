@@ -1,17 +1,19 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { AccessorySettingsMap, ACCESSORY_SETTINGS, MINECRAFT_USERNAME, SET_ACCESSORY_SETTINGS, SET_MC_USERNAME_TASK } from '../../../services/dashboard';
-import { API_ENDPOINT } from '../../../services/apiService';
+import { ACCESSORY_DETAILS, API_ENDPOINT } from '../../../services/apiService';
+import { useResource } from '../../../networking/resources/resource';
 import { useUpdatableResource } from '../../../networking/updatableResource';
 import { CrossCard } from '../../shared/CrossCard';
 import { Button } from '../../shared/Button';
 import { Loader } from '../../shared/Loader';
+import { Dashboard } from './Dashboard';
 
 /* Styles */
 import './UserDashboardPage.scss';
-import { Dashboard } from './Dashboard';
 
 export function UserDashboardPage() {
     const [mcUsername, updateMcUsername, mcUsernameLoading] = useUpdatableResource(MINECRAFT_USERNAME, SET_MC_USERNAME_TASK);
+    const accessoryDetails = useResource(ACCESSORY_DETAILS);
     const [accessoryMap, updateAccessoryMap, accessoryMapLoading] = useUpdatableResource(ACCESSORY_SETTINGS, SET_ACCESSORY_SETTINGS);
 
     const loading = useMemo(() => {
@@ -30,9 +32,10 @@ export function UserDashboardPage() {
     if (mcUsername === undefined || accessoryMap === undefined) {
         contents = null;
     }
-    else if (mcUsername.authenticated && accessoryMap.authenticated) {
+    else if (mcUsername.authenticated && accessoryDetails?.authenticated && accessoryMap.authenticated) {
         contents = (<Dashboard
             mcUsername={mcUsername.username}
+            accessoryDetails={accessoryDetails.details}
             accessoryMap={accessoryMap.settings}
             onMcUsernameChange={submitMinecraftUsername}
             onAccessoryMapChange={submitAccessorySettings}

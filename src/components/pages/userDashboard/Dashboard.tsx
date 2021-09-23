@@ -6,6 +6,7 @@ import { PanelBase } from '../../shared/PanelBase';
 import { SpacedRow } from '../../shared/SpacedRow';
 import { InputField } from '../../shared/InputField';
 import { StylableProps } from '../../shared/commonProps';
+import { AccessoryDetailsMap } from '../../../services/apiService';
 
 /* Styles */
 import './Dashboard.scss';
@@ -13,6 +14,7 @@ import './Dashboard.scss';
 export interface DashboardProps extends StylableProps {
     mcUsername: string;
     accessoryMap: AccessorySettingsMap;
+    accessoryDetails: AccessoryDetailsMap;
     onMcUsernameChange(username: string): void;
     onAccessoryMapChange(accessoryMap: AccessorySettingsMap): void;
 }
@@ -55,10 +57,12 @@ export function Dashboard(props: DashboardProps) {
                 </SpacedRow>
             </PanelBase>
             <h1>Accessories</h1>
-            {Object.entries(localAccessoryMap).map(([accessoryKey, settings]) => (
+            {Object.entries(props.accessoryDetails).map(([accessoryKey, details]) => (
                 <AccessoryPanel
                     key={accessoryKey}
-                    {...{ accessoryKey, settings }}
+                    accessoryKey={accessoryKey}
+                    details={details}
+                    settings={localAccessoryMap[accessoryKey]}
                     onChange={(settings) => handleSettingsChange(accessoryKey, settings)}
                 />
             ))}

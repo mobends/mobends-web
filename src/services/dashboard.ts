@@ -43,7 +43,6 @@ export const SET_MC_USERNAME_TASK = createTask(async (username: string) => {
 });
 
 export interface AccessorySettings {
-    displayName: string;
     unlocked: boolean;
     hidden: boolean;
     color: number;
@@ -53,7 +52,7 @@ export type AccessorySettingsMap = {[key: string]: AccessorySettings};
 
 export const ACCESSORY_SETTINGS = new StaticResource(async () => {
     try {
-        return await fetch(`${DASHBOARD_ENDPOINT}/accessories?`, {
+        return await fetch(`${DASHBOARD_ENDPOINT}/accessories`, {
             credentials: 'include',
         }).then(r => parseAuthJSON<{settings: AccessorySettingsMap}>(r));
     }

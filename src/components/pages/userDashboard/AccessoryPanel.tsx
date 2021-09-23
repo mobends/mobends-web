@@ -1,17 +1,19 @@
 import React from 'react';
+import classNames from 'classnames';
 import { AccessorySettings } from '../../../services/dashboard';
 import { PanelBase } from '../../shared/PanelBase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
+import { StylableProps } from '../../shared/commonProps';
+import { ColorProperty } from './ColorProperty';
+import { AccessoryDetails } from '../../../services/apiService';
 
 /* Styles */
 import './AccessoryPanel.scss';
-import { StylableProps } from '../../shared/commonProps';
-import classNames from 'classnames';
-import { ColorProperty } from './ColorProperty';
 
 export interface AccessoryPanelProps extends StylableProps {
     accessoryKey: string;
+    details: AccessoryDetails;
     settings: AccessorySettings;
     onChange(settings: AccessorySettings): void;
 }
@@ -29,7 +31,7 @@ export function PropertyWrapper({ label, children }: { label: string, children?:
     );
 }
 
-export function AccessoryPanel({accessoryKey, settings, ...props}: AccessoryPanelProps) {
+export function AccessoryPanel({accessoryKey, details, settings, ...props}: AccessoryPanelProps) {
     const handleColorChange = (color: number) => {
         props.onChange({
             ...settings,
@@ -43,7 +45,7 @@ export function AccessoryPanel({accessoryKey, settings, ...props}: AccessoryPane
                 'AccessoryPanel--locked': !settings.unlocked,
             })}
             header={(<>
-                <h1>{settings.displayName}</h1>
+                <h1>{details.displayName}</h1>
                 <FontAwesomeIcon className="AccessoryPanel__lockIcon" icon={settings.unlocked ? faLockOpen : faLock}></FontAwesomeIcon>
             </>)}
             style={{
