@@ -1,14 +1,18 @@
 import React from 'react';
-import './App.scss';
-
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import { Header } from './Header';
 import { RoadMapPage } from './pages/RoadMapPage';
 import { HomePage } from './pages/HomePage';
-import { Route } from './router/Route';
-import { Router } from './router/Router';
 import { UserDashboardPage } from './pages/userDashboard/UserDashboardPage';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+} from 'react-router-dom';
+
+/* Styles */
+import './App.scss';
 
 function App() {
     return (
@@ -17,9 +21,11 @@ function App() {
                 <Header />
                 <div className="App__content">
                     <SimpleBar>
-                        <Route page="dashboard" component={<UserDashboardPage />} />
-                        <Route page="roadmap" component={<RoadMapPage />} />
-                        <Route page={null} component={<HomePage />} />
+                        <Switch>
+                            <Route exact path="/dashboard">{() => <UserDashboardPage />}</Route>
+                            <Route exact path="/roadmap">{() => <RoadMapPage />}</Route>
+                            <Route exact path="/">{() => <HomePage />}</Route>
+                        </Switch>
                     </SimpleBar>
                 </div>
             </div>

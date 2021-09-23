@@ -56,7 +56,6 @@ export function UserDashboardPage() {
             </CrossCard>
         );
     }
-    
 
     return (
         <div className="UserDashboardPage">

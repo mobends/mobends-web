@@ -1,15 +1,14 @@
 import React from 'react';
-import { Link } from './router/Link';
+import { NavLink } from 'react-router-dom';
 
 import './HeaderNavigation.scss';
-
 
 export function HeaderNavigation() {
     return (
         <nav className='HeaderNavigation'>
-            <Link to={null}>Home</Link>
-            <Link to='roadmap'>What's to come?</Link>
-            <Link to='dashboard'>Dashboard</Link>
+            <NavLink exact to='/'>Home</NavLink>
+            <NavLink to='/roadmap'>What's to come?</NavLink>
+            <NavLink to='/dashboard'>Dashboard</NavLink>
         </nav>
     );
 }
