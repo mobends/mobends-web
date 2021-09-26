@@ -1,0 +1,9 @@
+.FieldLabel {
+    &__label {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        height: 2rem;
+        color: rgba(255, 255, 255, 0.5);
+    }
+}

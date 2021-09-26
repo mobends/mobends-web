@@ -10,6 +10,7 @@ import { InputField } from '../../shared/InputField';
 import { SpacedRow } from '../../shared/SpacedRow';
 import { Button } from '../../shared/Button';
 import { PopUp } from '../../shared/PopUp';
+import { FieldLabel } from '../../shared/FieldLabel';
 
 export interface AssetPanelProps extends StylableProps {
     definition: AssetDefinition;
@@ -25,6 +26,13 @@ export function AssetPanel({definition, ...props}: AssetPanelProps) {
         props.onChange({
             ...definition,
             path: e.target.value,
+        });
+    };
+
+    const handleVersionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        props.onChange({
+            ...definition,
+            version: Number.parseInt(e.target.value),
         });
     };
 
@@ -48,8 +56,19 @@ export function AssetPanel({definition, ...props}: AssetPanelProps) {
             style={props.style}
         >
             <SpacedRow>
-                <InputField value={definition.path} onChange={handlePathChange} />
-                <Button onClick={handleTryDelete}>Delete</Button>
+                <FieldLabel label="Path">
+                    <InputField style={{
+                        minWidth: '20rem'
+                    }} value={definition.path} onChange={handlePathChange} />
+                </FieldLabel>
+                <FieldLabel label="Version">
+                    <InputField style={{
+                        width: '4rem'
+                    }} type="number" value={definition.version} onChange={handleVersionChange} />
+                </FieldLabel>
+                <FieldLabel label="">
+                    <Button onClick={handleTryDelete}>Delete</Button>
+                </FieldLabel>
             </SpacedRow>
             {deleting ? (
                 <PopUp>

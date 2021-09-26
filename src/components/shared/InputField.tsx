@@ -6,7 +6,7 @@ import { StylableProps } from './commonProps';
 import './InputField.scss';
 
 export interface InputFieldProps extends StylableProps {
-    value: string;
+    value: string|number;
     type?: string;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
     onInput?: React.FormEventHandler<HTMLInputElement>;

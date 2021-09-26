@@ -27,16 +27,6 @@ export function AdminDashboard(props: AdminDashboardProps) {
         setLocalAssetManifest(props.assetManifest);
     }, [props.assetManifest]);
 
-    const handleBaseUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-
-        setLocalAssetManifest(old => ({
-            ...old,
-            baseUrl: value,
-        }));
-        setAssetManifestDirty(true);
-    };
-
     const handleManifestChange = (assetIndex: number, definition: AssetDefinition) => {
         const newArray = localAssetManifest.assets.slice();
         newArray[assetIndex] = definition;
@@ -61,16 +51,6 @@ export function AdminDashboard(props: AdminDashboardProps) {
     return (
         <div className="AdminDashboard">
             <h1>Welcome to the Admin Dashboard</h1>
-            <PanelBase header={
-                <h1>Base URL</h1>
-            }>
-                <SpacedRow>
-                    <InputField style={{
-                        width: '32rem',
-                        maxWidth: '60vw',
-                    }} value={localAssetManifest.baseUrl} onChange={handleBaseUrlChange} />
-                </SpacedRow>
-            </PanelBase>
             <h1>Assets</h1>
             {localAssetManifest.assets.map((asset, index) => (
                 <AssetPanel
