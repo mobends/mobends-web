@@ -7,6 +7,7 @@ import { faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
 import { StylableProps } from '../../shared/commonProps';
 import { ColorProperty } from './ColorProperty';
 import { AccessoryDetails } from '../../../services/apiService';
+import { ToggleSwitch } from '../../shared/ToggleSwitch';
 
 /* Styles */
 import './AccessoryPanel.scss';
@@ -39,14 +40,22 @@ export function AccessoryPanel({accessoryKey, details, settings, ...props}: Acce
         });
     };
 
+    const handleVisibleToggle = () => {
+        props.onChange({
+            ...settings,
+            hidden: !settings.hidden,
+        })
+    };
+
     return (
         <PanelBase
             className={classNames('AccessoryPanel', props.className, {
                 'AccessoryPanel--locked': !settings.unlocked,
             })}
             header={(<>
-                <h1>{details.displayName}</h1>
                 <FontAwesomeIcon className="AccessoryPanel__lockIcon" icon={settings.unlocked ? faLockOpen : faLock}></FontAwesomeIcon>
+                <h1>{details.displayName}</h1>
+                <ToggleSwitch checked={!settings.hidden} onClick={handleVisibleToggle}></ToggleSwitch>
             </>)}
             style={{
                 ...props.style,

@@ -1,0 +1,50 @@
+.ToggleSwitch {
+    --ToggleSwitch--color: #ffffff55;
+    --ToggleSwitch--width: 4rem;
+
+    position: relative;
+    border: 1px solid var(--ToggleSwitch--color, magenta);
+    display: inline-block;
+    width: var(--ToggleSwitch--width, 1rem);
+    height: 1.4rem;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.1s ease-out border-color;
+
+    &__inner {
+        background-color: var(--ToggleSwitch--color, magenta);
+        width: 50%;
+        height: 100%;
+        transform: translateX(0rem);
+        transition: 0.1s ease-out transform, 0.1s ease-out background-color;
+    }
+
+    &__labels {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        font-size: 0.8rem;
+
+        & > span {
+            color: black;
+            font-weight: bold;
+            width: 50%;
+            text-align: center;
+        }
+    }
+
+    &.ToggleSwitch--checked {
+        --ToggleSwitch--color: white;
+
+        .ToggleSwitch__inner {
+            transform: translateX(calc(var(--ToggleSwitch--width, 1rem)/2));
+        }
+    }
+}
